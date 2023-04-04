@@ -1,23 +1,26 @@
 #include "main.h"
 /**
- * _strpbrk - Entry point
- * @s: input
- * @accept: input
+ * _strstr - Entry point
+ * @haystack: input
+ * @needle: input
  * Return: Always 0 (Success)
  */
-char *_strpbrk(char *s, char *accept)
+char *_strstr(char *haystack, char *needle)
 {
-		int k;
+	for (; *haystack != '\0'; haystack++)
+	{
+		char *l = haystack;
+		char *p = needle;
 
-		while (*s)
+		while (*l == *p && *p != '\0')
 		{
-			for (k = 0; accept[k]; k++)
-			{
-			if (*s == accept[k])
-			return (s);
-			}
-		s++;
+			l++;
+			p++;
 		}
 
-	return ('\0');
+		if (*p == '\0')
+			return (haystack);
+	}
+
+	return (0);
 }
