@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		int sum;
+		int sum = 0;
 
 		int index;
 
