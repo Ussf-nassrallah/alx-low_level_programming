@@ -13,22 +13,22 @@ int main(int argc, char **argv)
 {
 	int index;
 
-	int product = 1;
+	int output;
 
-	if (argc == 3)
+	if (argc != 3)
+	{
+		printf("Error\n");
+		return (1);
+	}
+	else
 	{
 		for (index = 1; index < argc; index++)
 		{
 			/* atoi - function that convert char to int */
-			product = product * atoi(argv[index]);
+			output = atoi(argv[1]) * atoi(argv[2]);
 		}
 
-		printf("%d\n", product);
-	}
-	else if (argc == 1 || argc > 3)
-	{
-		printf("Error\n");
-		return(1);
+		printf("%d\n", output);
 	}
 
 	return (0);
