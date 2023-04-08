@@ -13,15 +13,17 @@ int _isdigit(char *c);
 
 int main(int argc, char **argv)
 {
+	int sum = 0;
+
+	int index;
+
 	if (argc == 1)
 	{
 		printf("0\n");
+		return (0);
 	}
 	else
 	{
-		int sum = 0;
-
-		int index;
 
 		for (index = 1; index < argc; index++)
 		{
