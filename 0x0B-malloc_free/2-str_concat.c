@@ -61,6 +61,11 @@ int _strlength(char *s)
 {
 	int index = 0;
 
+	if (s == NULL)
+	{
+		s = "";
+	}
+
 	while (s[index] != '\0')
 	{
 		index++;
