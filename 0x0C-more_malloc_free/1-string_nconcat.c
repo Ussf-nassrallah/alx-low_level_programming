@@ -50,7 +50,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			*(strArray + index) = s1[index];
 		}
 
-		for (; j < s2Len; j++)
+		for (; j < n; j++)
 		{
 			*(strArray + (s1Len + j)) = s2[j];
 		}
