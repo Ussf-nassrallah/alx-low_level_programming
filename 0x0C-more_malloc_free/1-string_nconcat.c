@@ -73,11 +73,6 @@ unsigned int _strlength(char *str)
 
 	unsigned int index = 0;
 
-	if (str == NULL)
-	{
-		str = "";
-	}
-
 	while (str[index] != '\0')
 	{
 		index++;
