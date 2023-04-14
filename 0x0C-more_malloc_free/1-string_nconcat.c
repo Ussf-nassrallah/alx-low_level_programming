@@ -36,7 +36,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		strArray = malloc(sizeof(char) * (strLen + 1));
 	}
 
-	if (strArray == NULL)
+	if (!strArray)
 	{
 		return (NULL);
 	}
