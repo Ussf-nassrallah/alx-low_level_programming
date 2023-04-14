@@ -74,11 +74,6 @@ int _strlength(char *str)
 
 	int index = 0;
 
-	if (!str)
-	{
-		str = "";
-	}
-
 	while (str[index] != '\0')
 	{
 		index++;
