@@ -27,17 +27,17 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	j = 0;
 
-	if (s1 == NULL)
+	if (!s1)
 	{
 		s1 = "";
 	}
 
-	if (s2 == NULL)
+	if (!s2)
 	{
 		s2 = "";
 	}
 
-	strArray = malloc(sizeof(char) * (s1Len + n + 1));
+	strArray = malloc(s1Len + n + 1);
 
 	if (!strArray)
 	{
@@ -45,23 +45,23 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	else
 	{
-		while (s1[index] != '\0')
+		while (*(s1 + index))
 		{
-			strArray[index] = s1[index];
+			*(strArray + index) = *(s1 + index);
 
 			index++;
 		}
 
 		while (n-- > 0)
 		{
-			strArray[index] = s2[j];
+			*(strArray + index) = *(strArray + j);
 
 			index++;
 
 			j++;
 		}
 
-		strArray[index] = '\0';
+		*(strArray + index) = '\0';
 
 		return (strArray);
 	}
