@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 
-unsigned int _strlength(char *str);
+int _strlength(char *str);
 
 /**
  * string_nconcat - function that concatenates two strings
@@ -15,13 +15,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *strArray;
 
-	unsigned int index, j;
+	int index, j;
 
-	unsigned int s1Len = _strlength(s1);
-
-	/*unsigned int s2Len = _strlength(s2);*/
-
-	/*unsigned int strLen = s1Len + s2Len;*/
+	int s1Len = _strlength(s1);
 
 	index = 0;
 
@@ -74,10 +70,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
  * Return: integer
  */
 
-unsigned int _strlength(char *str)
+int _strlength(char *str)
 {
 
-	unsigned int index = 0;
+	int index = 0;
 
 	while (str[index] != '\0')
 	{
