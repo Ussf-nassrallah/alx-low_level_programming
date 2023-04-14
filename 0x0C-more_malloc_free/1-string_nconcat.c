@@ -55,7 +55,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			*(strArray + (s1Len + j)) = s2[j];
 		}
 
-		strArray[s1Len + s2Len + 1] = '\0';
+		strArray[s1Len + s2] = '\0';
 
 		return (strArray);
 	}
