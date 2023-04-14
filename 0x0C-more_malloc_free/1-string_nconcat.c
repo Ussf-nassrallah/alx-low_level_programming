@@ -13,15 +13,15 @@ int _strlength(char *str);
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *strArray;
 
-	int index, j;
+	int index = 0;
+
+	int j = 0;
+
+	char *strArray;
 
 	int s1Len = _strlength(s1);
 
-	index = 0;
-
-	j = 0;
 
 	if (!s1)
 	{
@@ -39,28 +39,27 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		return (NULL);
 	}
-	else
+	
+	while (*(s1 + index))
 	{
-		while (*(s1 + index))
-		{
-			*(strArray + index) = *(s1 + index);
+		*(strArray + index) = *(s1 + index);
 
-			index++;
-		}
-
-		while (n-- > 0)
-		{
-			*(strArray + index) = *(s2 + j);
-
-			index++;
-
-			j++;
-		}
-
-		*(strArray + index) = '\0';
-
-		return (strArray);
+		index++;
 	}
+
+	while (n-- > 0)
+	{
+		*(strArray + index) = *(s2 + j);
+
+		index++;
+
+		j++;
+	}
+
+	*(strArray + index) = '\0';
+
+	return (strArray);
+
 
 }
 
@@ -74,6 +73,11 @@ int _strlength(char *str)
 {
 
 	int index = 0;
+
+	if (!str)
+	{
+		str = "";
+	}
 
 	while (str[index] != '\0')
 	{
