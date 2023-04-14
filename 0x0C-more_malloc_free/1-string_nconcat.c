@@ -21,7 +21,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	unsigned int s2Len = _strlength(s2);
 
-	unsigned int strLen = s1Len + s2Len;
+	/* unsigned int strLen = s1Len + s2Len; */
 
 	index = 0;
 
@@ -50,19 +50,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			*(strArray + index) = s1[index];
 		}
 
-		if (n >= s2Len)
+		for (; j < s2Len; j++)
 		{
-			for (; j < s2Len; j++)
-			{
-				*(strArray + (s1Len + j)) = s2[j];
-			}
-		}
-		else if (n < s2Len)
-		{
-			for (; j < n; j++)
-			{
-				*(strArray + (s1Len + j)) = s2[j];
-			}
+			*(strArray + (s1Len + j)) = s2[j];
 		}
 
 		return (strArray);
