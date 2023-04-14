@@ -27,14 +27,17 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	j = 0;
 
-	if (n < s2Len)
+	if (s1 == NULL)
 	{
-		strArray = malloc(sizeof(char) * (s1Len + n + 1));
+		s1 = "";
 	}
-	else
+
+	if (s2 == NULL)
 	{
-		strArray = malloc(sizeof(char) * (strLen + 1));
+		s2 = "";
 	}
+
+	strArray = malloc(sizeof(char) * (s1Len + n + 1));
 
 	if (!strArray)
 	{
@@ -77,6 +80,11 @@ unsigned int _strlength(char *str)
 {
 
 	unsigned int index = 0;
+
+	if (str == NULL)
+	{
+		str = "";
+	}
 
 	while (str[index] != '\0')
 	{
