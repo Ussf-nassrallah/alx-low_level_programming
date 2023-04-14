@@ -19,9 +19,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	unsigned int s1Len = _strlength(s1);
 
-	unsigned int s2Len = _strlength(s2);
+	/*unsigned int s2Len = _strlength(s2);*/
 
-	unsigned int strLen = s1Len + s2Len;
+	/*unsigned int strLen = s1Len + s2Len;*/
 
 	index = 0;
 
