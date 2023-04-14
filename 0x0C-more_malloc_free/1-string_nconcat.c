@@ -54,7 +54,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 		while (n-- > 0)
 		{
-			*(strArray + index) = *(strArray + j);
+			*(strArray + index) = *(s2 + j);
 
 			index++;
 
