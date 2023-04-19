@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 
 	operation = argv[2];
 
-	if (get_op_func(operation)== NULL || operation[1] != '\0')
+	if (get_op_func(operation) == NULL || operation[1] != '\0')
 	{
 		printf("Error\n");
 		exit(101);
