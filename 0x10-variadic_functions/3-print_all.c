@@ -10,11 +10,13 @@ void print_all(const char * const format, ...)
 {
 	int index;
 
+	/* s => string will be printed */
 	char *s;
 
-	char *separator = "";
+	/* sp => separator */
+	char *se = "";
 
-	/* format pointer */
+	/* fp => format pointer */
 	va_list fp;
 
 	va_start(fp, format);
@@ -28,35 +30,33 @@ void print_all(const char * const format, ...)
 			switch (format[index])
 			{
 				case 'i':
-					printf("%s%d", separator, va_arg(fp, int));
+					printf("%s%d", se, va_arg(fp, int));
 					break;
 				case 'c':
-					printf("%s%c", separator, va_arg(fp, int));
+					printf("%s%c", se, va_arg(fp, int));
 					break;
 				case 'f':
-					printf("%s%f", separator, va_arg(fp, double));
+					printf("%s%f", se, va_arg(fp, double));
 					break;
 				case 's':
 					s = va_arg(fp, char*);
 
-					if (s == NULL)
+					if (!s)
 					{
 						s = "(nil)";
 					}
 
-					printf("%s%s", separator, s);
+					printf("%s%s", se, s);
 					break;
 				default:
 					index++;
 					continue;
 			}
 
-			separator = ", ";
+			se = ", ";
 			index++;
 		}
-
-		va_end(fp);
-
-		printf("\n");
 	}
+	va_end(fp);
+	printf("\n");
 }
