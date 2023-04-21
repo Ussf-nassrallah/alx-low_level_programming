@@ -8,23 +8,17 @@
 
 void print_all(const char * const format, ...)
 {
-	int index;
-
+	int index = 0;
 	/* s => string will be printed */
 	char *s;
-
 	/* sp => separator */
 	char *se = "";
-
 	/* fp => format pointer */
 	va_list fp;
 
 	va_start(fp, format);
-
 	if (format != NULL)
 	{
-		index = 0;
-
 		while (format[index])
 		{
 			switch (format[index])
@@ -40,19 +34,14 @@ void print_all(const char * const format, ...)
 					break;
 				case 's':
 					s = va_arg(fp, char*);
-
-					if (!s)
-					{
+					if (s == NULL)
 						s = "(nil)";
-					}
-
 					printf("%s%s", se, s);
 					break;
 				default:
 					index++;
 					continue;
 			}
-
 			se = ", ";
 			index++;
 		}
