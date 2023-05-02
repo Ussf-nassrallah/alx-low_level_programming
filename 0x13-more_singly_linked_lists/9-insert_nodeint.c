@@ -5,6 +5,7 @@
  * @head: pointer to the first node
  * @index: node index
  * @n: node data
+ * Return: NULL
  */
 
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
@@ -15,7 +16,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
 
 	unsigned int j;
 
-	new_node = malloc(sizeof (listint_t));
+	new_node = malloc(sizeof(listint_t));
 
 	if (!new_node || !head)
 		return (NULL);
