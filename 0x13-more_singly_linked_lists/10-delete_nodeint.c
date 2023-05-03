@@ -18,15 +18,16 @@ int delete_nodeint_at_index(listint_t **h, unsigned int idx)
 	listint_t *t = (*h);
 	listint_t *cur = NULL;
 
+	if (*h == NULL)
+		return (-1);
+
+
 	if (idx == 0)
 	{
 		*h = (*h)->next;
 		free(t);
 		return (1);
 	}
-
-	if (*h == NULL)
-		return (-1);
 
 	while (j < (idx - 1))
 	{
