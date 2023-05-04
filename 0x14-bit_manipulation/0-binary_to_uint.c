@@ -3,7 +3,7 @@
 /**
  * binary_to_uint - func that converts binary to uint
  *@b: binary will be convert
- Return: uint
+  *Return: uint
  */
 
 unsigned int binary_to_uint(const char *b)
@@ -17,7 +17,7 @@ unsigned int binary_to_uint(const char *b)
 
 	for (; b[index]; index++)
 	{
-		if(b[index] < '0' || b[index] > '1')
+		if (b[index] < '0' || b[index] > '1')
 			return (0);
 
 		value = 2 * value + (b[index] - '0');
