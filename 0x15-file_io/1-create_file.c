@@ -26,7 +26,7 @@ int create_file(const char *fn, char *s)
 
 	open_output = open(fn, O_RDWR | O_CREAT, 0600);
 
-	write_output = write(open_output, s, strlen(s));
+	write_output = write(open_output, s, index);
 
 	if (open_output == -1 || write_output == -1)
 		return (-1);
