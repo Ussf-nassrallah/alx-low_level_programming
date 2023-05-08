@@ -11,9 +11,9 @@ int create_file(const char *fn, char *s)
 {
 	int index;
 	/* Value return from open */
-	int open_output;
+	int open_output = 0;
 	/* value return from write */
-	int write_output;
+	int write_output = 0;
 
 	if (!fn)
 		return (-1);
