@@ -24,7 +24,7 @@ int create_file(const char *fn, char *s)
 			index++;
 	}
 
-	open_output = open(fn, O_RDWR | O_CREAT, 0600);
+	open_output = open(fn, O_RDWR | O_CREAT | O_TRUNC, 0600);
 
 	write_output = write(open_output, s, index);
 
