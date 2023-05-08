@@ -15,7 +15,7 @@ int create_file(const char *fn, char *s)
 	/* value return from write */
 	int write_output = 0;
 
-	if (!fn)
+	if (fn == NULL)
 		return (-1);
 
 	if (s != NULL)
