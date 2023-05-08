@@ -9,7 +9,7 @@
 
 int create_file(const char *fn, char *s)
 {
-	int index = 0;
+	int index;
 	/* Value return from open */
 	int open_output;
 	/* value return from write */
@@ -18,16 +18,15 @@ int create_file(const char *fn, char *s)
 	if (!fn)
 		return (-1);
 
-	open_output = open(fn, O_RDWR | O_CREAT, 0600);
-	write_output = write(open_output, s, strlen(s));
-
 	if (s != NULL)
 	{
-		while (s[index] != '\0')
-		{
+		for (index = 0; s[index];)
 			index++;
-		}
 	}
+
+	open_output = open(fn, O_RDWR | O_CREAT, 0600);
+
+	write_output = write(open_output, s, strlen(s));
 
 	if (open_output == -1 || write_output == -1)
 		return (-1);
