@@ -10,16 +10,13 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *h, unsigned int idx)
 	unsigned int counter = 0;
 
 	/* find node by index */
-	while (h != NULL)
+	while (h && counter < idx)
 	{
 		h = h->next;
 		counter++;
-		if (counter == idx)
-			return (h);
 	}
 
-	/* if index out of the range return null */
-	return (NULL);
+	return (h);
 }
 
 /**
