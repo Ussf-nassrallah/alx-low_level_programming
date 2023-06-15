@@ -3,11 +3,12 @@
 /**
  * get_dnodeint_at_index - returns the nth node of a dlistint_t linked list
  * @h: the node at the beginning of the list
- * Return: current node or null
+ * @idx: position
+ * Return: current node
  */
 dlistint_t *get_dnodeint_at_index(dlistint_t *h, unsigned int idx)
 {
-	unsigned int counter = 0;
+	size_t counter = 0;
 
 	/* find node by index */
 	while (h && counter < idx)
