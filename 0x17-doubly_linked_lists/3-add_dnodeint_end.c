@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * add_dnodeint - adds a new node at the End of a dlistint_t list.
+ * add_dnodeint_end - adds a new node at the End of a dlistint_t list.
  * @head: the node at the beginning of the list
  * @n:  data to be added to the new node
  * Return: new node address or null
@@ -33,5 +33,5 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	new_node->prev = *head;
 	(*head)->next = new_node;
 
-	return(new_node);
+	return (new_node);
 }
