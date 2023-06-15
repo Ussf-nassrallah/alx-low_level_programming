@@ -1,6 +1,28 @@
 #include "lists.h"
 
 /**
+ * get_dnodeint_at_index - returns the nth node of a dlistint_t linked list
+ * @h: the node at the beginning of the list
+ * Return: current node or null
+ */
+dlistint_t *get_dnodeint_at_index(dlistint_t *h, unsigned int idx)
+{
+	unsigned int counter = 0;
+
+	/* find node by index */
+	while (h != NULL)
+	{
+		h = h->next;
+		counter++;
+		if (counter == idx)
+			return (h);
+	}
+
+	/* if index out of the range return null */
+	return (NULL);
+}
+
+/**
  * insert_dnodeint_at_index - inserts a new node at a given position.
  * @head: the node at the beginning of the list
  * @i: position
@@ -9,32 +31,31 @@
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int i, int n)
 {
-	/* n_node = new node */
-	dlistint_t *ptr = *head, *n_node;
-	/* create first node in the list*/
-	if (i == 0)
+	dlistint_t *n_node, *temp;
+
+	if (head == NULL)
+		return (0);
+
+	if (!i)
 		return (add_dnodeint(head, n));
-	/* go to the next node */
-	while (i != 1)
-	{
-		ptr = ptr->next;
-		if (ptr == NULL)
-			return (NULL);
-		i--;
-	}
-	/* create new node at the end */
-	if (ptr->next == NULL)
+
+	temp = get_dnodeint_at_index(*head, i - 1);
+
+	if (temp == NULL)
+		return (0);
+
+	if (temp->next == NULL)
 		return (add_dnodeint_end(head, n));
-	/* inserts a new node at a given position. */
+
 	n_node = malloc(sizeof(dlistint_t));
 	if (n_node == NULL)
-		return (NULL);
+		return (0);
 
 	n_node->n = n;
-	n_node->prev = ptr;
-	n_node->next = ptr->next;
-	ptr->next->prev = n_node;
-	ptr->next = n_node;
-	/* return new node */
+	n_node->prev = temp;
+	n_node->next = temp->next;
+	temp->next->prev = n_node;
+	temp->next = n_node;
+
 	return (n_node);
 }
