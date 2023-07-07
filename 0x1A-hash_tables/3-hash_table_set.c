@@ -23,8 +23,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_node->key = malloc(sizeof(char) * (strlen(key) + 1));
 	new_node->value = malloc(sizeof(char) * (strlen(value) + 1));
 
-	strcpy(new_node->key, key);
-	strcpy(new_node->value, value);
+	if (new_node->key != NULL && new_node->value != NULL)
+	{
+		strcpy(new_node->key, key);
+		strcpy(new_node->value, value);
+	}
+	else
+	{
+		return (0);
+	}
 
 	index = key_index((const unsigned char *)key, ht->size);
 	ht->array[index] = new_node;
