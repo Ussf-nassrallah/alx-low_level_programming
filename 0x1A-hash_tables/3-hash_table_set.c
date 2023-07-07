@@ -3,11 +3,12 @@
 /**
  * add_node - adds a new node at the beginning of a linked list
  * @head: pointer to the list
- * @str: string will be added in the node
+ * @key: the key of the node
+ * @value: node value
  * Return: the address of the new node, or NULL
  */
 
-hash_node_t *add_node(hash_node_t *head, const char *key, const char *value)
+hash_node_t *add_node(hash_node_t **head, const char *key, const char *value)
 {
 	hash_node_t *new_node;
 
@@ -15,13 +16,13 @@ hash_node_t *add_node(hash_node_t *head, const char *key, const char *value)
 
 	if (new_node == NULL)
 		return (NULL);
-	
+
 	new_node->key = strdup(key);
 	new_node->value = strdup(value);
-	new_node->next = head;
-	head = new_node;
+	new_node->next = (*head);
+	(*head) = new_node;
 
-	return (head);
+	return (*head);
 }
 
 
