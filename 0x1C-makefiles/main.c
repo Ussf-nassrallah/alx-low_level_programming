@@ -2,7 +2,7 @@
 
 /**
  * main - Entry point
- * comment
+ *
  * Return: Always 
  */
 int main(void)
